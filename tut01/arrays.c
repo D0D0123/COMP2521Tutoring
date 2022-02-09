@@ -6,9 +6,9 @@ int main() {
     int arr[5];
     arr[0] = 1;
 
-    // Segmentation fault
     // arr[5] = 2;
 
+    // Can't have variable length, can't resize
 
 
 
@@ -20,14 +20,33 @@ int main() {
 
 
 
-    /// Dynamic arrays ///
+
+    /// Dynamic/Heap allocated arrays ///
 
     // allocating an integer array of size 5
-    int *dyn_arr = malloc(sizeof(int) * 5);
-    dyn_arr[0] = 1;
-    dyn_arr[1] = 2;
-    printf("dyn_arr[1] = %d\n", dyn_arr[1]);
-    free(dyn_arr);
+    int *nums = malloc(sizeof(int) * 5);
+    nums[0] = 1;
+    nums[1] = 2;
+    printf("nums[1] = %d\n", nums[1]);
+
+
+
+    free(nums);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /// 2D Dynamic arrays ///
 

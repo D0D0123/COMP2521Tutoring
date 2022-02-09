@@ -16,7 +16,7 @@ void vowelOrConsonant(char ch);
 
 int main(int argc, char *argv[]) {
     int i = 4;
-    printf("day %d: %s\n", i, numToDay(4));
+    printf("day %d: %s\n", i, numToDay(i));
 
     vowelOrConsonant('a');
     vowelOrConsonant('g');
@@ -80,19 +80,19 @@ char *numToDay(int n) {
 }
 */
 
-void vowelOrConsonant(char ch) {
-    assert(islower(ch));
-    switch (ch) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-            printf("%c: vowel\n", ch); break;
-        default:
-            printf("%c: consonant\n", ch); break;
-    }
-}
+// void vowelOrConsonant(char ch) {
+//     assert(islower(ch));
+//     switch (ch) {
+//         case 'a':
+//         case 'e':
+//         case 'i':
+//         case 'o':
+//         case 'u':
+//             printf("%c: vowel\n", ch); break;
+//         default:
+//             printf("%c: consonant\n", ch); break;
+//     }
+// }
 
 
 

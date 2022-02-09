@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <string.h>
 
+// constant
+#define MAX_SIZE 10
+
 int main() {
 
     /// Numerical data types /// 
@@ -23,25 +26,28 @@ int main() {
         // OR
     strcpy(str, "hello");
 
-    char *immutable_string = "hello"; // "hello" ==> ['h', 'e', 'l', 'l', 'o', '\0']
+    char *immutable_string = "hello";
 
     // Segfault
     // immutable_string[0] = 'H';
-
-    printf("str: %s\n", str);
-    printf("immutable string: %s\n", immutable_string);
 
     /// Boolean data type ///
     bool boolean = true;
     boolean = false;
 
-    printf("boolean: %d\n", boolean);
+    // -----------------------------------------------------
 
-    int a, b, c, d, e;
-    a = b = c = d = e = 0;
+    int a, b, c, d;
+    d = 0;
+    a = b = c = d;
 
     d++;
 
+
+    printf("d: %d\n", d);
+    printf("c: %d\n", c);
+    printf("b: %d\n", b);
+    printf("a: %d\n", a);
 
 
     
@@ -49,7 +55,7 @@ int main() {
 
     /// Pointers ///
     int num = 7;
-    int *ptr = NULL;
+    int *ptr;
     ptr = &num;
 
     // print the value stored in the variable num

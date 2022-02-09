@@ -24,12 +24,12 @@ int main(int argc, char *argv[]) {
     }
     */
 
-
     printf("normal for loop \n");
-    for(int i = 0; i < 10; i++) {
-        printf("i: %d\n", i);
-    }
+    // how do we convert the while loop to a for loop?
 
+
+    
+    
     printf("for loop with break \n");
     for (int i = 0; i < 10; i++) {
         if (i == 5) {
