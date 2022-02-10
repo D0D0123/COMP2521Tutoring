@@ -27,7 +27,6 @@ int main(int argc, char *argv[]) {
     printf("normal for loop \n");
     // how do we convert the while loop to a for loop?
 
-
     
     
     printf("for loop with break \n");

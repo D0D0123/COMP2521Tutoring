@@ -3,66 +3,38 @@
 #include <stdbool.h>
 #include <string.h>
 
-// constant
-#define MAX_SIZE 10
-
 int main() {
 
-    /// Numerical data types /// 
-    int integer = 5;
-    double dub = 0.3;
-    float flt = 0.7;
-
-    /// Character/String data types ///
-    char ch = 'a';
-
-    char str[6];
-    str[0] = 'h';
-    str[1] = 'e';
-    str[2] = 'l';
-    str[3] = 'l';
-    str[4] = 'o';
-    str[5] = '\0';
-        // OR
-    strcpy(str, "hello");
-
-    char *immutable_string = "hello";
-
-    // Segfault
-    // immutable_string[0] = 'H';
-
-    /// Boolean data type ///
-    bool boolean = true;
-    boolean = false;
-
-    // -----------------------------------------------------
-
-    int a, b, c, d;
+    int b, c, d;
     d = 0;
-    a = b = c = d;
+    b = c = d;
 
     d++;
 
+    // printf("d: %d\n", d);
+    // printf("c: %d\n", c);
+    // printf("b: %d\n", b);
 
-    printf("d: %d\n", d);
-    printf("c: %d\n", c);
-    printf("b: %d\n", b);
-    printf("a: %d\n", a);
+    int *a = &b;
+    (*a) += 1;
 
+    // printf("b: %d\n", b);
 
-    
+    char *str1 = "hello";
 
+    // str1[0] = 'b';
+    // printf("str1: %s\n", str1);
 
-    /// Pointers ///
-    int num = 7;
-    int *ptr;
-    ptr = &num;
+    char str2[6];
+    strcpy(str2, str1);
 
-    // print the value stored in the variable num
-    printf("%d\n", num);
-    // print the memory address of the pointer that points to num
-    printf("%p\n", ptr);
-    // print the value stored in the memory address that ptr points to
-    // which is the value of num
-    printf("%d\n", *ptr);
+    // str2[0] = 'b';
+    // printf("str2: %s\n", str2);
+
+    char *str3 = str2;
+
+    str3[0] = 'j';
+    printf("str3: %s\n", str3);
+    printf("str2: %s\n", str2);
+
 }
