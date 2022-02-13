@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <string.h>
 
+void addToInt(int x);
+void addToIntByRef(int *x);
+
 int main() {
 
     int b, c, d;
@@ -34,7 +37,23 @@ int main() {
     char *str3 = str2;
 
     str3[0] = 'j';
-    printf("str3: %s\n", str3);
-    printf("str2: %s\n", str2);
+    // printf("str3: %s\n", str3);
+    // printf("str2: %s\n", str2);
 
+
+    int x = 5;
+    addToInt(x);
+    printf("x = %d\n", x);
+
+    addToIntByRef(&x);
+    printf("x = %d\n", x);
+
+}
+
+void addToInt(int num) {
+    num += 1;
+}
+
+void addToIntByRef(int *numptr) {
+    *numptr += 1;
 }

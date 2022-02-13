@@ -12,15 +12,6 @@ int main() {
 
 
 
-
-
-
-
-
-
-
-
-
     /// Dynamic/Heap allocated arrays ///
 
     // allocating an integer array of size 5
