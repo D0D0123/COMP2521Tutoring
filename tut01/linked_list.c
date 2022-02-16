@@ -32,7 +32,22 @@ int main() {
         listInsert(l, i);
     }
     printList(l);
+
+    // printf("sum of list l: %d\n", sumList(l));
+
+    // listDelete(l, 0);
+    // printList(l);
+    // listDelete(l, 3);
+    // printList(l);
+
+    // List empty = newList();
+    // listDelete(empty, 7);
+    // printList(empty);
 }
+
+
+
+
 
 int sumList(List l) {
     return 0;
@@ -84,3 +99,52 @@ void printList(List l) {
     }
     printf("X\n");
 }
+
+
+
+
+
+
+
+// int sumList(List l) {
+//     int sum = 0;
+//     Node curr = l->head;
+//     while (curr != NULL) {
+//         sum += curr->value;
+//         curr = curr->next;
+//     }
+//     return sum;
+// }
+
+// void listDelete(List l, int value) {
+//     if (l == NULL) return;
+//     Node curr = l->head;
+
+//     if (curr == NULL) return;
+
+//     if (curr->value == value) {
+//         l->head = curr->next;
+//         free(curr);
+//         return;
+//     }
+
+//     while (curr->next != NULL) {
+//         if (curr->next->value == value) {
+//             Node temp = curr->next;
+//             curr->next = curr->next->next;
+//             free(temp);
+//             return;
+//         }
+//         curr = curr->next;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
