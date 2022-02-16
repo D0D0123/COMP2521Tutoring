@@ -15,11 +15,11 @@ char *numToDay(int n);
 void vowelOrConsonant(char ch);
 
 int main(int argc, char *argv[]) {
-    int i = 4;
+    int i = 1;
     printf("day %d: %s\n", i, numToDay(i));
 
-    vowelOrConsonant('a');
-    vowelOrConsonant('g');
+    // vowelOrConsonant('a');
+    // vowelOrConsonant('g');
 
 }
 
@@ -47,62 +47,43 @@ char *numToDay(int n) {
 
 
 
-/*
-char *numToDay(int n) {
-	assert(0 <= n && n <= 6);
-	char *day;
-	switch (n) {
-		case 0: day = "Sun"; break;
-		case 1: day = "Mon"; break;
-		case 2: day = "Tue"; break;
-		case 3: day = "Wed"; break;
-		case 4: day = "Thu"; break;
-		case 5: day = "Fri"; break;
-		case 6: day = "Sat"; break;
-	}
-	return day;
-}
-*/
 
-/*
-char *numToDay(int n) {
-	assert(0 <= n && n <= 6);
-	switch (n) {
-		case 0:  return "Sun";
-		case 1:  return "Mon";
-		case 2:  return "Tue";
-		case 3:  return "Wed";
-		case 4:  return "Thu";
-		case 5:  return "Fri";
-		case 6:  return "Sat";
-		default: return "???";
-	}
-}
-*/
-
-// void vowelOrConsonant(char ch) {
-//     assert(islower(ch));
-//     switch (ch) {
-//         case 'a':
-//         case 'e':
-//         case 'i':
-//         case 'o':
-//         case 'u':
-//             printf("%c: vowel\n", ch); break;
-//         default:
-//             printf("%c: consonant\n", ch); break;
-//     }
+// char *numToDay(int n) {
+// 	assert(0 <= n && n <= 6);
+// 	char *day;
+// 	switch (n) {
+// 		case 0: day = "Sun"; break;
+// 		case 1: day = "Mon"; break;
+// 		case 2: day = "Tue"; break;
+// 		case 3: day = "Wed"; break;
+// 		case 4: day = "Thu"; break;
+// 		case 5: day = "Fri"; break;
+// 		case 6: day = "Sat"; break;
+// 	}
+// 	return day;
 // }
 
-
-
-
-
-
 void vowelOrConsonant(char ch) {
-    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-	    printf("vowel\n");
-    } else {
-        printf("consonant\n");
+    assert(islower(ch));
+    switch (ch) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            printf("%c: vowel\n", ch); break;
+        default:
+            printf("%c: consonant\n", ch); break;
     }
 }
+
+
+
+
+// void vowelOrConsonant(char ch) {
+//     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+// 	    printf("vowel\n");
+//     } else {
+//         printf("consonant\n");
+//     }
+// }

@@ -6,7 +6,7 @@ bool isSorted(int *a, int n);
 
 int main(int argc, char *argv[]) {
     
-    int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int a[] = {1, 2, 3, 5, 4, 6, 7, 8, 9, 10};
     int b[] = {1, 2, 3, 4, 5, 6, 8, 7, 9, 10};
 
     printf("isSorted(a, 10): %d\n", isSorted(a, 10));
@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
 bool isSorted(int *a, int n) {
 	return false;
 }
+
+
+
 
 
 

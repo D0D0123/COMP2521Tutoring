@@ -18,6 +18,7 @@ int main() {
     // printf("c: %d\n", c);
     // printf("b: %d\n", b);
 
+    b = 5;
     int *a = &b;
     (*a) += 1;
 
@@ -43,16 +44,21 @@ int main() {
 
     int x = 5;
     addToInt(x);
-    printf("x = %d\n", x);
+    // printf("x = %d\n", x);
 
     addToIntByRef(&x);
-    printf("x = %d\n", x);
+    // printf("x = %d\n", x);
 
 }
 
 void addToInt(int num) {
     num += 1;
 }
+
+
+
+
+
 
 void addToIntByRef(int *numptr) {
     *numptr += 1;

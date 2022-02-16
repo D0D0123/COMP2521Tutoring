@@ -20,6 +20,10 @@ int main() {
     nums[1] = 2;
     printf("nums[1] = %d\n", nums[1]);
 
+    nums = realloc(nums, sizeof(int) * 10);
+    nums[8] = 6;
+    printf("nums[8] = %d\n", nums[8]);
+
 
 
     free(nums);
@@ -55,7 +59,7 @@ int main() {
     }
 
     // print an element of the array
-    printf("arr2d[2][3] = %d\n", arr2d[2][3]);
+    // printf("arr2d[2][3] = %d\n", arr2d[2][3]);
 
     // free the memory
     for (int i = 0; i < 5; i++) {
