@@ -35,14 +35,14 @@ int main() {
 
     // printf("sum of list l: %d\n", sumList(l));
 
-    // listDelete(l, 0);
-    // printList(l);
-    // listDelete(l, 3);
-    // printList(l);
+    listDelete(l, 0);
+    printList(l);
+    listDelete(l, 3);
+    printList(l);
 
-    // List empty = newList();
-    // listDelete(empty, 7);
-    // printList(empty);
+    List empty = newList();
+    listDelete(empty, 7);
+    printList(empty);
 }
 
 
@@ -54,6 +54,27 @@ int sumList(List l) {
 }
 
 void listDelete(List l, int value) {
+    if (l->head == NULL) {
+        return;
+    }
+
+    if (l->head->value == value) {
+        Node temp = l->head;
+        l->head = l->head->next;
+        free(temp);
+        return;
+    }
+
+    Node curr = l->head;
+    while (curr->next != NULL) {
+        if (curr->next->value == value) {
+            Node temp = curr->next;
+            curr->next = curr->next->next;
+            free(temp);
+            return;
+        }
+        curr = curr->next;
+    }
     
 }
 
@@ -73,12 +94,12 @@ void listInsert(List l, int value) {
 Node newNode(int value) {
     // a)
     Node n = malloc(sizeof(struct node));
-    // b)
-    Node n = malloc(sizeof(Node *));
-    // c)
-    Node n = malloc(sizeof(Node));
-    // d)
-    Node n = malloc(sizeof(*n));
+    // // b)
+    // Node n = malloc(sizeof(Node *));
+    // // c)
+    // Node n = malloc(sizeof(Node));
+    // // d)
+    // Node n = malloc(sizeof(*n));
 
     n->value = value;
     n->next = NULL;

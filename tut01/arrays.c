@@ -6,8 +6,6 @@ int main() {
     int arr[5];
     arr[0] = 1;
 
-    // arr[5] = 2;
-
     // Can't have variable length, can't resize
 
 

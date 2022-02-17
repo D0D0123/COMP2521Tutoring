@@ -29,7 +29,7 @@ int main() {
     // str1[0] = 'b';
     // printf("str1: %s\n", str1);
 
-    char str2[6];
+    char str2[6]; // [h, e, l, l, o, \0]
     strcpy(str2, str1);
 
     // str2[0] = 'b';
@@ -44,10 +44,10 @@ int main() {
 
     int x = 5;
     addToInt(x);
-    // printf("x = %d\n", x);
+    printf("x = %d\n", x);
 
     addToIntByRef(&x);
-    // printf("x = %d\n", x);
+    printf("x = %d\n", x);
 
 }
 
