@@ -9,7 +9,7 @@
 int main() {
 
     // initialises string memory
-    char *str = malloc(MAX_LEN * sizeof(char));
+    char *str = malloc((MAX_LEN + 1) * sizeof(char));
 
     strcpy(str, "Hello");
 
