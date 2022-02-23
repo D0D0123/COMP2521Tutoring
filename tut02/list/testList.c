@@ -1,9 +1,9 @@
 #include "List.h"
 
 int main() {
-    List l = newList();
+    List l = NULL;
     for (int i = 0; i < 5; i++) {
-        listInsert(l, i);
+        l = listInsert(l, i);
     }
     printList(l);
 
@@ -13,9 +13,9 @@ int main() {
 
     printf("is list l sorted?: %d\n", listIsSorted(l));
    
-    listDelete(l, 0);
+    l = listDelete(l, 0);
     printList(l);
-    listDelete(l, 3);
+    l = listDelete(l, 3);
     printList(l);
 
     freeList(l);

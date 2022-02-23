@@ -5,24 +5,19 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-struct node {
+typedef struct node {
     int value;
     struct node *next;
-};
+} Node;
 
-struct list {
-    struct node *head;
-};
-
-typedef struct node *Node; // writing 'Node' is the same as writing 'struct node *'
-typedef struct list *List; // writing 'List' is the same as writing 'struct list *'
+typedef Node *List; // writing 'List' is the same as writing 'struct node *'
 
 int listSum(List l);
-void listDelete(List l, int value);
-void listInsert(List l, int value);
+List listDelete(List l, int value);
+List listInsert(List l, int value);
 int listCountOdds(List l);
 bool listIsSorted(List l);
-Node newNode(int value);
+Node *newNode(int value);
 List newList();
 void printList(List l);
 void freeList(List l);

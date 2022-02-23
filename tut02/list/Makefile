@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror -g
 .PHONY: all
 all: testList
 
-testList: testList.c IList.o List.o
+testList: testList.c RList.o List.o
 
 IList.o: IList.c List.h
 RList.o: RList.c List.h

@@ -1,34 +1,28 @@
 #include "List.h"
 
-void listInsert(List l, int value) {
-    if (l->head == NULL) {
-        l->head = newNode(value);
+List listInsert(List l, int value) {
+    if (l == NULL) {
+        return newNode(value);
     } else {
-        Node n = newNode(value);
-        Node curr = l->head;
+        struct node *curr = l;
         while (curr->next != NULL) {
             curr = curr->next;
         }
-        curr->next = n;
+        curr->next = newNode(value);
+        return l;
     }
 }
 
-Node newNode(int value) {
-    Node n = malloc(sizeof(struct node));
+Node *newNode(int value) {
+    Node *n = malloc(sizeof(struct node));
 
     n->value = value;
     n->next = NULL;
     return n;
 }
 
-List newList() {
-    List l = malloc(sizeof(struct list));
-    l->head = NULL;
-    return l;
-}
-
 void printList(List l) {
-    Node curr = l->head;
+    Node *curr = l;
     while (curr != NULL) {
         printf("%d -> ", curr->value);
         curr = curr->next;
@@ -37,13 +31,12 @@ void printList(List l) {
 }
 
 void freeList(List l) {
-    Node curr = l->head;
+    Node *curr = l;
     while (curr != NULL) {
-        Node next = curr->next;
+        Node *next = curr->next;
         free(curr);
         curr = next;
     }
-    free(l);
 }
 
 

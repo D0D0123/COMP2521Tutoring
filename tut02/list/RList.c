@@ -12,6 +12,6 @@ bool listIsSorted(List l) {
     return false;
 }
 
-void listDelete(List l, int value) {
-   return; 
+List listDelete(List l, int value) {
+   return NULL; 
 }

@@ -2,7 +2,7 @@
 
 int listSum(List l) {
     int sum = 0;
-    Node curr = l->head;
+    Node *curr = l;
     while (curr != NULL) {
         sum += curr->value;
         curr = curr->next;
@@ -12,7 +12,7 @@ int listSum(List l) {
 
 int listCountOdds(List l) {
     int count = 0;
-    Node curr = l->head;
+    Node *curr = l;
     while (curr != NULL) {
         if (curr->value % 2 == 1)
             count += 1;
@@ -22,7 +22,7 @@ int listCountOdds(List l) {
 }
 
 bool listIsSorted(List l) {
-    Node curr = l->head;
+    Node *curr = l;
     while (curr->next != NULL) {
         if (curr->value > curr->next->value)
             return false;
@@ -32,27 +32,29 @@ bool listIsSorted(List l) {
 }
 
 
-void listDelete(List l, int value) {
-    if (l->head == NULL) {
-        return;
+List listDelete(List l, int value) {
+    if (l == NULL) {
+        return NULL;
     }
 
-    if (l->head->value == value) {
-        Node temp = l->head;
-        l->head = l->head->next;
+    if (l->value == value) {
+        Node *temp = l;
+        l = l->next;
         free(temp);
-        return;
+        return l;
     }
 
-    Node curr = l->head;
+    Node *curr = l;
     while (curr->next != NULL) {
         if (curr->next->value == value) {
-            Node temp = curr->next;
+            Node *temp = curr->next;
             curr->next = curr->next->next;
             free(temp);
-            return;
+            return l;
         }
         curr = curr->next;
     }
+
+    return l;
     
 }
