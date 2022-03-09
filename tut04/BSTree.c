@@ -14,6 +14,8 @@
 #define left(tree)  ((tree)->left)
 #define right(tree) ((tree)->right)
 
+int max(int a, int b);
+
 typedef struct BSTNode {
 	int  data;
 	BSTree left;
@@ -66,22 +68,40 @@ BSTree TreeInsert(BSTree t, Item it) {
 	return t;
 }
 
-void TreePrint(BSTree t) {
+void TreePrintInfix(BSTree t) {
 	if (t == NULL) {
 		return;
 	}
 
-	TreePrint(left(t));
+	TreePrintInfix(t->left);
 
-	if (left(t) != NULL) {
-		printf(", ");
-	}
-	printf("%d", data(t));
-	if (right(t) != NULL) {
-		printf(", ");
+	printf("%d ", data(t));
+
+	TreePrintInfix(t->right);
+}
+
+void TreePrintPrefix(BSTree t) {
+	if (t == NULL) {
+		return;
 	}
 
-	TreePrint(right(t));
+	printf("%d ", data(t));
+
+	TreePrintPrefix(t->left);
+
+	TreePrintPrefix(t->right);
+}
+
+void TreePrintPostfix(BSTree t) {
+	if (t == NULL) {
+		return;
+	}
+
+	TreePrintPostfix(t->left);
+
+	TreePrintPostfix(t->right);
+
+	printf("%d ", data(t));
 }
 
 BSTree TreeAdd(BSTree t1, BSTree t2) {
@@ -100,13 +120,52 @@ int BSTreeNumNodes(BSTree t) {
 	return 0; //TODO
 }
 
+/*
+int BSTreeNumNodes(BSTree t) {
+
+	if (t == NULL) {
+		return 0;
+	}
+
+	return 1 + BSTreeNumNodes(t->left) + BSTreeNumNodes(t->right);
+
+}*/
+
 int BSTreeCountOdds(BSTree t) {
 	return 0; //TODO
 }
 
+/*
+int BSTreeCountOdds(BSTree t) {
+	
+	if (t == NULL) return 0;
+
+	if (t->data % 2 == 1) {
+		return 1 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+	} else {
+		return 0 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+	}
+}*/
+
 // computes the height of a tree
 int BSTreeHeight(BSTree t) {
 	return 0; //TODO
+}
+
+/*
+int BSTreeHeight(BSTree t) {
+	if (t == NULL) return -1;
+
+	int lheight = BSTreeHeight(t->left);
+	int rheight = BSTreeHeight(t->right);
+
+	return 1 + max(lheight, rheight);
+
+}*/
+
+int max(int a, int b) {
+	if (a > b) return a;
+	return b;
 }
 
 // counts number of internal nodes
@@ -114,13 +173,46 @@ int BSTreeCountInternal(BSTree t) {
 	return 0; //TODO
 }
 
+/*
+int BSTreeCountInternal(BSTree t) {
+	if (t == NULL) return 0;
+	if (t->left == NULL && t->right == NULL) return 0;
+
+	return 1 + BSTreeCountInternal(t->left) + BSTreeCountInternal(t->right);
+}*/
+
 int BSTreeNodeLevel(BSTree t, int key) {
-	return 0; //TODO
+	if (t == NULL) 
+		return -1;
+	else if (t->data == key) 
+		return 0;
+	else if (key < t->data) {
+		int ndl = BSTreeNodeLevel(t->left, key);
+		if (ndl == -1) return -1;
+		return ndl + 1;
+	} else {
+		int ndr = BSTreeNodeLevel(t->right, key);
+		if (ndr == -1) return -1;
+		return ndr + 1;
+	}
 }
 
 int BSTreeCountGreater(BSTree t, int val) {
 	return 0; //TODO
 }
+
+/*
+int BSTreeCountGreater(BSTree t, int val) {
+	if (t == NULL) return 0;
+
+	if (t->data > val) {
+		return 1 + BSTreeCountGreater(t->left, val) + BSTreeCountGreater(t->right, val);
+	} else {
+		return 0 + BSTreeCountGreater(t->right, val);
+	}
+}*/
+
+
 
 
 ////////////////////////////////////////////////////////////////////////

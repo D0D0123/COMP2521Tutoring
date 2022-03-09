@@ -20,7 +20,9 @@ BSTree TreeGetRight(BSTree t);
 
 BSTree TreeInsert(BSTree, Item);
 
-void TreePrint(BSTree t);
+void TreePrintInfix(BSTree t);
+void TreePrintPostfix(BSTree t);
+void TreePrintPrefix(BSTree t);
 
 BSTree TreeAdd(BSTree t1, BSTree t2);
 
