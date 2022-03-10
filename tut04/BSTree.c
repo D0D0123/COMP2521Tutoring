@@ -117,7 +117,10 @@ BSTree TreeAdd(BSTree t1, BSTree t2) {
 
 // counts #nodes in a tree
 int BSTreeNumNodes(BSTree t) {
-	return 0; //TODO
+	if (t == NULL)
+		return 0;
+	
+	return 1 + BSTreeNumNodes(t->left) + BSTreeNumNodes(t->right);
 }
 
 /*
@@ -132,7 +135,15 @@ int BSTreeNumNodes(BSTree t) {
 }*/
 
 int BSTreeCountOdds(BSTree t) {
-	return 0; //TODO
+	if (t == NULL) return 0;
+
+	// if (t->data % 2 == 0) {
+	// 	return 0 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+	// } else {
+	// 	return 1 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+	// }
+
+	return (t->data % 2) + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
 }
 
 /*
@@ -149,7 +160,13 @@ int BSTreeCountOdds(BSTree t) {
 
 // computes the height of a tree
 int BSTreeHeight(BSTree t) {
-	return 0; //TODO
+	if (t == NULL)
+		return -1;
+	
+	int lheight = BSTreeHeight(t->left);
+	int rheight = BSTreeHeight(t->right);
+
+	return 1 + max(lheight, rheight);
 }
 
 /*
@@ -187,6 +204,8 @@ int BSTreeNodeLevel(BSTree t, int key) {
 	else if (t->data == key) 
 		return 0;
 	else if (key < t->data) {
+		// search for the node with value == key, and 
+		// find it's level relative to this node
 		int ndl = BSTreeNodeLevel(t->left, key);
 		if (ndl == -1) return -1;
 		return ndl + 1;
@@ -198,7 +217,16 @@ int BSTreeNodeLevel(BSTree t, int key) {
 }
 
 int BSTreeCountGreater(BSTree t, int val) {
-	return 0; //TODO
+	
+	if (t == NULL)
+		return 0;
+	
+	if (t->data > val) {
+		return 1 + BSTreeCountGreater(t->left, val) + BSTreeCountGreater(t->right, val);
+	} else {
+		return 0 + BSTreeCountGreater(t->right, val);
+	}
+
 }
 
 /*
@@ -211,6 +239,7 @@ int BSTreeCountGreater(BSTree t, int val) {
 		return 0 + BSTreeCountGreater(t->right, val);
 	}
 }*/
+
 
 
 
