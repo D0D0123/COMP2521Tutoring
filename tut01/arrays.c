@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int *return_stack_array();
+int *return_heap_array();
+
+
 int main() {
     /// Stack allocated arrays ///
     int arr[5];
     arr[0] = 1;
 
-    // Can't have variable length, can't resize
+    // Can't resize, only exist within a function's scope
 
 
 
@@ -26,21 +30,19 @@ int main() {
 
     free(nums);
 
+    int* arr_p;
+
+    // undefined behaviour
+    // arr_p = return_stack_array();
+    // printf("%d\n", arr_p[9]);
+
+    // correct
+    arr_p = return_heap_array();
+    printf("arr_p[9] = %d\n", arr_p[9]);
+    free(arr_p);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*
     /// 2D Dynamic arrays ///
 
     // allocating a 2D integer array of size 5x5
@@ -64,4 +66,23 @@ int main() {
         free(arr2d[i]);
     }
     free(arr2d);
+    */
+}
+
+// invalid return 
+// int *return_stack_array() {
+//   int arr[10];
+//   for (int i = 0; i < 10; i++) {
+//     arr[i] = i;
+//   }
+//   return arr;
+// }
+
+// valid return
+int *return_heap_array() {
+  int *arr = malloc(10 * sizeof(int));
+  for (int i = 0; i < 10; i++) {
+    arr[i] = i;
+  }
+  return arr;
 }

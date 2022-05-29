@@ -44,10 +44,10 @@ int main() {
 
     int x = 5;
     addToInt(x);
-    printf("x = %d\n", x);
+    // printf("x = %d\n", x);
 
     addToIntByRef(&x);
-    printf("x = %d\n", x);
+    // printf("x = %d\n", x);
 
 }
 

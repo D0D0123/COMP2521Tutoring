@@ -19,6 +19,7 @@ void listInsert(List l, int value);
 Node newNode(int value);
 List newList();
 void printList(List l);
+void listFree(List l);
 
 int main() {
     Node n;
@@ -43,6 +44,9 @@ int main() {
     List empty = newList();
     listDelete(empty, 7);
     printList(empty);
+
+    listFree(l);
+    listFree(empty);
 }
 
 
@@ -54,9 +58,7 @@ int sumList(List l) {
 }
 
 void listDelete(List l, int value) {
-    if (l->head == NULL) {
-        return;
-    }
+    if (l->head == NULL) return;
 
     if (l->head->value == value) {
         Node temp = l->head;
@@ -121,6 +123,16 @@ void printList(List l) {
     printf("X\n");
 }
 
+void listFree(List l) {
+    Node curr = l->head;
+    while (curr != NULL) {
+        Node temp = curr;
+        curr = curr->next;
+        free(temp);
+    }
+    free(l);
+}
+
 
 
 
@@ -138,17 +150,18 @@ void printList(List l) {
 // }
 
 // void listDelete(List l, int value) {
-//     if (l == NULL) return;
-//     Node curr = l->head;
-
-//     if (curr == NULL) return;
-
-//     if (curr->value == value) {
-//         l->head = curr->next;
-//         free(curr);
+//     if (l->head == NULL) {
 //         return;
 //     }
 
+//     if (l->head->value == value) {
+//         Node temp = l->head;
+//         l->head = l->head->next;
+//         free(temp);
+//         return;
+//     }
+
+//     Node curr = l->head;
 //     while (curr->next != NULL) {
 //         if (curr->next->value == value) {
 //             Node temp = curr->next;
@@ -158,6 +171,7 @@ void printList(List l) {
 //         }
 //         curr = curr->next;
 //     }
+    
 // }
 
 
