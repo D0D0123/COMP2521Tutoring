@@ -16,7 +16,20 @@ int main(int argc, char *argv[]) {
 
 
 bool isSorted(int *a, int n) {
-	return false;
+// 	for elem in list:
+//   if curr > next:
+//    return false
+
+// return true
+
+	for (int i = 0; i < n - 1; i++) {
+		if (a[i] > a[i + 1]) {
+			return false;
+		}
+	}
+
+	return true;
+
 }
 
 

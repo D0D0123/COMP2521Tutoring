@@ -26,17 +26,18 @@ int main(int argc, char *argv[]) {
 
     printf("normal for loop \n");
     // how do we convert the while loop to a for loop?
-    
-    
-    
-    
-    
-    
-    
-    int k;
-    for (k = 0; k < 10; k++) {
+    for (int k = 0; k < 10; k++) {
         printf("k: %d\n", k);
     }
+    
+    
+    
+    
+    
+    // int k;
+    // for (k = 0; k < 10; k++) {
+    //     printf("k: %d\n", k);
+    // }
 
     
     printf("for loop with break \n");

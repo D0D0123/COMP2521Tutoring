@@ -34,7 +34,7 @@ int main() {
     }
     printList(l);
 
-    // printf("sum of list l: %d\n", sumList(l));
+    printf("sum of list l: %d\n", sumList(l));
 
     listDelete(l, 0);
     printList(l);
@@ -54,26 +54,34 @@ int main() {
 
 
 int sumList(List l) {
-    return 0;
+    int sum = 0;
+
+    Node curr = l->head;
+    while (curr != NULL) {
+        sum += curr->value;
+        curr = curr->next;
+    }
+
+    return sum;
 }
 
 void listDelete(List l, int value) {
     if (l->head == NULL) return;
 
+    // deleting from head
     if (l->head->value == value) {
         Node temp = l->head;
         l->head = l->head->next;
         free(temp);
-        return;
     }
 
+    // deleting from the rest
     Node curr = l->head;
     while (curr->next != NULL) {
         if (curr->next->value == value) {
             Node temp = curr->next;
             curr->next = curr->next->next;
             free(temp);
-            return;
         }
         curr = curr->next;
     }
