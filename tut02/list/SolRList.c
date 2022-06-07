@@ -20,20 +20,22 @@ bool listIsSorted(List l) {
     if (l == NULL) return true;
     if (l->next == NULL) return true;
 
-    if (l->value > l->next->value) 
-        return false;
-    else
-        return listIsSorted(l->next);    
+    return (l->value <= l->next->value) && listIsSorted(l->next);    
 }
 
 List listDelete(List l, int value) {
     if (l == NULL) return NULL;
 
+    // if this is the node to delete
     if (l->value == value) {
         List rest_of_list = l->next;
+        // free the current node 
+        // and return a pointer to the next one
         free(l);
         return rest_of_list;
     } else {
+        // look for the node in the rest of the list,
+        // and return a pointer to the current node
         List rest_of_list = l->next;
         l->next = listDelete(rest_of_list, value);
         return l;
