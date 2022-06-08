@@ -34,9 +34,9 @@ List listDelete(List l, int value) {
         free(l);
         return rest_of_list;
     } else {
-        // look for the node in the rest of the list,
-        // and return a pointer to the current node
         List rest_of_list = l->next;
+        // look for the node to delete in the rest of the list,
+        // and return a pointer to the current node
         l->next = listDelete(rest_of_list, value);
         return l;
     }

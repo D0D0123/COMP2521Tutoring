@@ -1,15 +1,22 @@
 #include "List.h"
 
 int listSum(List l) {
-    return 0;
+    if (l == NULL) return 0;
+
+    return l->value + listSum(l->next);
 }
 
 int listCountOdds(List l) {
-    return 0;
+    if (l == NULL) return 0;
+
+    return (l->value % 2) + listCountOdds(l->next);
 }
 
 bool listIsSorted(List l) {
-    return false;
+    if (l == NULL) return true;
+    if (l->next == NULL) return true;
+
+    return (l->value <= l->next->value) && listIsSorted(l->next);
 }
 
 List listDelete(List l, int value) {
