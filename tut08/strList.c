@@ -12,10 +12,10 @@ struct node {
 Node createNode(char *word) {
 	Node n = malloc(sizeof(struct node));
 	assert(n != NULL);
-    /* 
-	n->word = malloc((strlen(word) + 1) * sizeof(char));
-    strcpy(n->word, word); */
-	n->word = word;
+	// n->word = malloc((strlen(word) + 1) * sizeof(char));
+    // strcpy(n->word, word);
+	n->word = strdup(word);
+	// n->word = word;
 	n->next = NULL;
 	return n;
 }
